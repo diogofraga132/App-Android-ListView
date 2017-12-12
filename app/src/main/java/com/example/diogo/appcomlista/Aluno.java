@@ -8,6 +8,7 @@ public class Aluno {
     private String nome;
     private String cgu;
 
+
     public String getNome() {
         return nome;
     }

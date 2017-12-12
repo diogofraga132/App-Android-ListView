@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CadastroActivity extends AppCompatActivity {
     EditText etNome;
@@ -23,8 +24,15 @@ public class CadastroActivity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RepositorioDeAlunos.getAlunos().add(getAluno());
-                CadastroActivity.this.finish();
+
+                if((etNome.getText().length() == 0)||(etCGU.getText().length() != 9)){
+
+                    Toast.makeText(CadastroActivity.this, "Verifique os campos !", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    RepositorioDeAlunos.getAlunos().add(getAluno());
+                    CadastroActivity.this.finish();
+                }
 
             }
         });
